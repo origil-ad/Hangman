@@ -13,6 +13,7 @@ public class HangmanController {
     public HangmanController(HangmanView view, HangmanModel model) {
         _model = model;
         _view = view;
+        _view.addLetterSelectListener(new letterSelectedListener());
     }
 
     /** When a letter is selected.

@@ -4,6 +4,7 @@ import Models.HangmanModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class HangmanView extends JFrame {
     private JLabel _wordToGuess;
@@ -27,8 +28,12 @@ public class HangmanView extends JFrame {
         setSize(new Dimension(500, 500));
         setVisible(true);
     }
-    
+
     public void showError(String s) {
         //TODO
+    }
+
+    public void addLetterSelectListener(ActionListener letterSelectedListener) {
+        _lettersBank.addActionListener(letterSelectedListener);
     }
 }
