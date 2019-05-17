@@ -6,7 +6,7 @@ public class HangmanModel {
     private String[] _lettersBank;
     private int _numOfBadGuesses;
 
-    public HangmanModel(){
+    public HangmanModel() {
         reset();
     }
 
@@ -29,7 +29,7 @@ public class HangmanModel {
         removeCharFromBank(ch);
     }
 
-    public int get_numOfBadGuesses(){
+    public int get_numOfBadGuesses() {
         return _numOfBadGuesses;
     }
 
