@@ -13,8 +13,8 @@ public class HangmanView extends JFrame {
     private JPanel _image;
 
     public HangmanView(HangmanModel model) {
-        _wordToGuess = new GameLabel(model.get_encryptedWord());
-        _chosenBank = new GameLabel("Letters Already used:");
+        _wordToGuess = new WordLabel(model.get_encryptedWord());
+        _chosenBank = new UsedLettersLabel();
         _lettersBank = new BankComboBox(model.get_lettersBank());
         _image = new HangmanPanel(model.get_numOfBadGuesses());
 
