@@ -1,3 +1,4 @@
+package Models;
 import java.util.Random;
 
 public class WordsGenerator {
@@ -5,13 +6,13 @@ public class WordsGenerator {
         return new String[]{"polymorphism", "umbrella", "encyclopedia", "mattermost", "ilovejava", "yallahabayta"};
     }
 
-    public static String generateWord() {
+    public static String[] generateWordArray() {
         var words = getWords();
         var chosen = new Random().nextInt(words.length - 1);
-        return words[chosen];
+        return words[chosen].split("");
     }
 
-    public static char[] generateAlphaBet() {
-        return "abcdefghijklmnopqrstuvqxyz".toCharArray();
+    public static String[] generateAlphaBetArray() {
+        return "abcdefghijklmnopqrstuvqxyz".split("");
     }
 }
