@@ -11,12 +11,12 @@ public class HangmanModel {
     }
 
     public void reset() {
-        _lettersBank = WordsGenerator.generateAlphaBetArray();
         _word = WordsGenerator.generateWordArray();
         _encryptedWord = new String[_word.length];
         for (int i = 0; i < _word.length; i++) {
             _encryptedWord[i] = "_";
         }
+        _lettersBank = WordsGenerator.generateAlphaBetArray();
         _numOfBadGuesses = 0;
     }
 
@@ -35,6 +35,15 @@ public class HangmanModel {
 
     public String get_word() {
         return StringArrayToString(_word);
+    }
+
+    public boolean isLetterInWord(String letter){
+        for (int i = 0; i < _word.length; i++) {
+            if (letter.equals(_word[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String get_encryptedWord() {
