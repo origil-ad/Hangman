@@ -5,6 +5,7 @@ import Models.HangmanModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class HangmanView extends JFrame {
     private JLabel _wordToGuess;
@@ -35,5 +36,24 @@ public class HangmanView extends JFrame {
 
     public void addLetterSelectListener(ActionListener letterSelectedListener) {
         _lettersBank.addActionListener(letterSelectedListener);
+    }
+
+    public void updateBank(String[] lettersBank) {
+        _lettersBank.removeAllItems();
+        for (String s : lettersBank) {
+            _lettersBank.addItem(s);
+        }
+    }
+
+    public void updateUsedLetters(String letter) {
+        String temp = _chosenBank.getText();
+        temp+= letter;
+        _chosenBank.setText(orderByAlphabet(temp));
+    }
+
+    private String orderByAlphabet(String s){
+        char[] array = s.toCharArray();
+        Arrays.sort(array);
+        return new String(array);
     }
 }
