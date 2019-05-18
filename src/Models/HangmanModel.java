@@ -22,11 +22,10 @@ public class HangmanModel {
 
     public void replaceAllCharOccurrencesInEncryptedWord(String ch) {
         for (int i = 0; i < _word.length; i++) {
-            if (ch == _word[i]) {
+            if (ch.equals(_word[i])) {
                 _encryptedWord[i] = ch;
             }
         }
-        removeCharFromBank(ch);
     }
 
     public int get_numOfBadGuesses() {
@@ -54,10 +53,10 @@ public class HangmanModel {
         return _lettersBank;
     }
 
-    private void removeCharFromBank(String ch) {
+    public void removeCharFromBank(String ch) {
         String tempStr = "";
         for (int i = 0; i < _lettersBank.length; i++) {
-            if (ch != _lettersBank[i]) {
+            if (!ch.equals(_lettersBank[i])) {
                 tempStr += _lettersBank[i];
             }
         }
@@ -72,4 +71,7 @@ public class HangmanModel {
         return tempStr;
     }
 
+    public void addBadGuess() {
+        _numOfBadGuesses++;
+    }
 }
