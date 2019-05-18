@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class HangmanPanel extends JPanel {
     private int _lines;
-    private BufferedImage image;
+    private BufferedImage _image;
 
     public HangmanPanel(int numOfLines, int size) {
         _lines = numOfLines;
@@ -26,16 +26,26 @@ public class HangmanPanel extends JPanel {
 
     public void addLine(){
         _lines++;
-        try {
-            image = ImageIO.read(new File("D:\\Repos\\Hangman\\src\\views\\" +_lines+".png"));
-        } catch (IOException ex) {
-            // handle exception...
-        }
+
     }
 
     @Override
     protected void paintComponent(Graphics g) {
+        try {
+            _image = ImageIO.read(new File("D:\\Repos\\Hangman\\src\\views\\" +_lines+".png"));
+        } catch (IOException ex) {
+            // handle exception...
+        }
+
         super.paintComponent(g);
-        g.drawImage(image, 0, 0, this); // see javadoc for more info on the parameters
+        var imageWidth = _image.getWidth();
+        var imageHeight = _image.getHeight();
+        var panelWidth = getWidth();
+        var panelHeight = getHeight();
+
+        var x = (panelWidth - imageWidth) / 2;
+        var y = (panelHeight - imageHeight) / 2;
+
+        g.drawImage(_image, x, y, this); // see javadoc for more info on the parameters
     }
 }
