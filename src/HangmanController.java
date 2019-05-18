@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class HangmanController {
 
+    private final int MAX_BAD_GUESSES = 10;
     private HangmanView _view;
     private HangmanModel _model;
 
@@ -39,6 +40,7 @@ public class HangmanController {
      *
      * If there was an error, tell the View to display it.
      */
+
     class letterSelectedListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String userInput = "";
@@ -46,16 +48,23 @@ public class HangmanController {
                 JComboBox combo = (JComboBox) e.getSource();
                 var letter = (String) combo.getSelectedItem();
                 if (_model.isLetterInWord(letter)) {
-                    //...
                     _model.replaceAllCharOccurrencesInEncryptedWord(letter);
-                    if (!_model.get_encryptedWord().contains("-")){
+                    if (!_model.get_encryptedWord().contains("_")){
                         //TODO: game completed
+                        System.out.println("game completed");
                     }
-                    _view.updateBank(_model.get_lettersBank());
-                    _view.updateUsedLetters(letter);
+                    _view.updateWord(_model.get_encryptedWord());
                 } else {
-                    //...
+                    _view.addLineToHangman();
+                    _model.addBadGuess();
+                    if (_model.get_numOfBadGuesses() >= MAX_BAD_GUESSES){
+                        //TODO: game over
+                        System.out.println("game over");
+                    }
                 }
+                _model.removeCharFromBank(letter);
+                _view.updateBank(_model.get_lettersBank());
+                _view.updateUsedLetters(letter);
 
             } catch (Exception ex) {
                 _view.showError("Bad input: '" + userInput + "'");
