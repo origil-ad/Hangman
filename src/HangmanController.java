@@ -5,13 +5,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HangmanController {
+class HangmanController {
 
     private final int MAX_BAD_GUESSES = 10;
     private HangmanView _view;
     private HangmanModel _model;
 
-    public HangmanController(HangmanView view, HangmanModel model) {
+    HangmanController(HangmanView view, HangmanModel model) {
         _model = model;
         _view = view;
         _view.addLetterSelectListener(new letterSelectedListener());
@@ -43,7 +43,6 @@ public class HangmanController {
 
     class letterSelectedListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String userInput = "";
             try {
                 JComboBox combo = (JComboBox) e.getSource();
                 var letter = (String) combo.getSelectedItem();
@@ -64,7 +63,7 @@ public class HangmanController {
                 _view.updateBank(_model.get_lettersBank());
                 _view.updateUsedLetters(letter);
 
-            } catch (Exception ex) {
+            } catch (Exception ignored) {
             }
         }
     }

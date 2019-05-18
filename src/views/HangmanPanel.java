@@ -11,21 +11,21 @@ public class HangmanPanel extends JPanel {
     private int _lines;
     private BufferedImage _image;
 
-    public HangmanPanel(int numOfLines, int size) {
+    HangmanPanel(int numOfLines, int size) {
         _lines = numOfLines;
-        setPreferredSize(new Dimension(size, size * 3 / 5));
+        setPreferredSize(new Dimension(size, size * 4 / 5));
     }
 
     public int get_lines() {
         return _lines;
     }
 
-    public void set_lines(int lines) {
+    void set_lines(int lines) {
         _lines = lines;
         repaint();
     }
 
-    public void addLine(){
+    void addLine(){
         _lines++;
     }
 

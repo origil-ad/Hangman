@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 public class HangmanView extends JFrame {
-    private final int SIZE = 800;
+    private final int SIZE = 600;
     private JLabel _wordToGuess;
     private JLabel _chosenBank;
     private JComboBox _lettersBank;
