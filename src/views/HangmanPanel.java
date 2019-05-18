@@ -22,11 +22,11 @@ public class HangmanPanel extends JPanel {
 
     public void set_lines(int lines) {
         _lines = lines;
+        repaint();
     }
 
     public void addLine(){
         _lines++;
-
     }
 
     @Override

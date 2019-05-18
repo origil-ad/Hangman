@@ -32,6 +32,13 @@ public class HangmanView extends JFrame {
         setVisible(true);
     }
 
+    public void reset(HangmanModel model){
+        _wordToGuess.setText(model.get_encryptedWord());
+        ((HangmanPanel)_hangman).set_lines(0);
+        _chosenBank.setText("");
+        updateBank(model.get_lettersBank());
+    }
+
     public void addLetterSelectListener(ActionListener letterSelectedListener) {
         _lettersBank.addActionListener(letterSelectedListener);
     }

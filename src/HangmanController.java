@@ -49,17 +49,15 @@ public class HangmanController {
                 var letter = (String) combo.getSelectedItem();
                 if (_model.isLetterInWord(letter)) {
                     _model.replaceAllCharOccurrencesInEncryptedWord(letter);
-                    if (!_model.get_encryptedWord().contains("_")){
-                        //TODO: game completed
-                        System.out.println("game completed");
-                    }
                     _view.updateWord(_model.get_encryptedWord());
+                    if (!_model.get_encryptedWord().contains("_")){
+                        gameEnd("Game Completed !");
+                    }
                 } else {
                     _view.addLineToHangman();
                     _model.addBadGuess();
                     if (_model.get_numOfBadGuesses() >= MAX_BAD_GUESSES){
-                        //TODO: game over
-                        System.out.println("game over");
+                        gameEnd("game over !");
                     }
                 }
                 _model.removeCharFromBank(letter);
@@ -68,6 +66,18 @@ public class HangmanController {
 
             } catch (Exception ex) {
             }
+        }
+    }
+
+    private void gameEnd(String text){
+        System.out.println(text);
+        var result = JOptionPane.showConfirmDialog(_view, "Would you like another try?", text, JOptionPane.YES_NO_OPTION);
+        if (result == 0){
+            _model.reset();
+            _view.reset(_model);
+        }
+        else {
+            _view.dispose();
         }
     }
 }
