@@ -32,7 +32,8 @@ public class HangmanPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         try {
-            _image = ImageIO.read(new File("D:\\Repos\\Hangman\\src\\views\\" +_lines+".png"));
+            var workDir = System.getProperty("user.dir");
+            _image = ImageIO.read(new File(workDir + "\\src\\views\\images\\" +_lines+".png"));
         } catch (IOException ex) {
             // handle exception...
         }
