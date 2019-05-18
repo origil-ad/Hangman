@@ -67,7 +67,6 @@ public class HangmanController {
                 _view.updateUsedLetters(letter);
 
             } catch (Exception ex) {
-                _view.showError("Bad input: '" + userInput + "'");
             }
         }
     }

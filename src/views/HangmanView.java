@@ -32,10 +32,6 @@ public class HangmanView extends JFrame {
         setVisible(true);
     }
 
-    public void showError(String s) {
-        //TODO
-    }
-
     public void addLetterSelectListener(ActionListener letterSelectedListener) {
         _lettersBank.addActionListener(letterSelectedListener);
     }
