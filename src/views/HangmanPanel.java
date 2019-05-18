@@ -13,7 +13,7 @@ public class HangmanPanel extends JPanel {
 
     public HangmanPanel(int numOfLines, int size) {
         _lines = numOfLines;
-        setPreferredSize(new Dimension(350, size * 3 / 5));
+        setPreferredSize(new Dimension(size, size * 3 / 5));
     }
 
     public int get_lines() {

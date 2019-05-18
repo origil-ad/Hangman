@@ -7,7 +7,7 @@ public class UsedLettersLabel extends JLabel {
 
     public UsedLettersLabel(int size) {
         super("", SwingConstants.CENTER);
-        setPreferredSize(new Dimension(size, size / 5));
+        setPreferredSize(new Dimension(size*4/5, size / 5));
         setFont(new Font("SansSerif", Font.BOLD, 10));
     }
 

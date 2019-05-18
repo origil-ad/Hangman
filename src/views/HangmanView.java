@@ -8,22 +8,23 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 public class HangmanView extends JFrame {
-    private final int SIZE = 500;
+    private final int SIZE = 800;
     private JLabel _wordToGuess;
     private JLabel _chosenBank;
     private JComboBox _lettersBank;
     private JPanel _hangman;
+    private JPanel _topPanel;
 
     public HangmanView(HangmanModel model) {
         _wordToGuess = new WordLabel(model.get_encryptedWord(), SIZE);
-        _chosenBank = new UsedLettersLabel(SIZE);
-        _lettersBank = new BankComboBox(model.get_lettersBank());
         _hangman = new HangmanPanel(model.get_numOfBadGuesses(), SIZE);
+        _chosenBank = new UsedLettersLabel(SIZE);
+        _lettersBank = new BankComboBox(model.get_lettersBank(), SIZE);
+        _topPanel = new TopPanel(_chosenBank, _lettersBank, SIZE);
 
         setLayout(new BorderLayout());
-        add(_chosenBank, BorderLayout.PAGE_START);
+        add(_topPanel, BorderLayout.PAGE_START);
         add(_hangman, BorderLayout.LINE_START);
-        add(_lettersBank, BorderLayout.LINE_END);
         add(_wordToGuess, BorderLayout.PAGE_END);
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

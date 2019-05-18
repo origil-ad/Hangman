@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class BankComboBox extends JComboBox {
 
-    public BankComboBox(String[] values) {
+    public BankComboBox(String[] values, int size) {
         super(values);
-        setPreferredSize(new Dimension(150, 300));
+        setPreferredSize(new Dimension(size / 5, size / 5));
     }
 }
