@@ -5,9 +5,9 @@ import java.awt.*;
 
 public class WordLabel extends JLabel {
 
-    public WordLabel(String text) {
+    public WordLabel(String text, int size) {
         super(text, SwingConstants.CENTER);
-        setPreferredSize(new Dimension(500, 100));
+        setPreferredSize(new Dimension(size, size / 5));
         setFont(new Font("SansSerif", Font.BOLD, 30));
     }
 }

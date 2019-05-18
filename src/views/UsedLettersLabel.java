@@ -5,9 +5,9 @@ import java.awt.*;
 
 public class UsedLettersLabel extends JLabel {
 
-    public UsedLettersLabel() {
+    public UsedLettersLabel(int size) {
         super("", SwingConstants.CENTER);
-        setPreferredSize(new Dimension(500, 100));
+        setPreferredSize(new Dimension(size, size / 5));
         setFont(new Font("SansSerif", Font.BOLD, 10));
     }
 
